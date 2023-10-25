@@ -14,10 +14,6 @@ bool ReadFileAventura::read() {
             cout << linea << endl;
 
 
-
-
-
-
         }
         archivo.close();
         return true; // Lectura exitosa
