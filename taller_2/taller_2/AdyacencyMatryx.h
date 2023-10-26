@@ -11,12 +11,13 @@ public:
 
     void addNode(int nodoOrigen, int nodoDestino);
     void addEdge(int nodoOrigen, int nodoDestino);
-    void delteNode(int nodoOrigen, int nodoDestino);
-    void delteEdge(int nodoOrigen, int nodoDestino);
-    bool existsEdge(int nodoOrigen, int nodoDestino);
+    void delteNode();
+    void delteEdge();
+    bool existsEdge();
     void dijkstra(int start);
     void floydWarshall();
     void printMatrix();
+    
 
 private:
     int numNodos;

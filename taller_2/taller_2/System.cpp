@@ -1,6 +1,13 @@
 #include "System.h"
+#include "ReadFileLugares.h"
+#include "ReadFileAventura.h"
 #include <iostream>
 using namespace std;
+
+string name;
+ReadFileLugares readFileP(name);
+ReadFileAventura readFileA(name);
+
 
 void System::Menu() {
     cout << "1. Calcular ruta minima." << endl;
