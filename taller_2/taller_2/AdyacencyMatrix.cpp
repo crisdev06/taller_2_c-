@@ -67,3 +67,48 @@ void AdyacencyMatrix::dijkstra(int start) {
     }*/
 
 }
+
+void AdyacencyMatrix::floydWarshall() {
+/*void floydWarshall(vector<vector<int>>& grafo, int numVertices) {
+    // Matriz de distancias más cortas
+    vector<vector<int>> distancia(numVertices, vector<int>(numVertices, INF));
+
+    // Inicializar la diagonal con ceros
+    for (int i = 0; i < numVertices; ++i) {
+        distancia[i][i] = 0;
+    }
+
+    // Inicializar la matriz de distancias con los valores del grafo
+    for (int i = 0; i < numVertices; ++i) {
+        for (int j = 0; j < numVertices; ++j) {
+            if (grafo[i][j] != 0) {
+                distancia[i][j] = grafo[i][j];
+            }
+        }
+    }
+
+    // Calcular las distancias más cortas
+    for (int k = 0; k < numVertices; ++k) {
+        for (int i = 0; i < numVertices; ++i) {
+            for (int j = 0; j < numVertices; ++j) {
+                // Si el vértice k mejora el camino de i a j, actualizar la distancia
+                if (distancia[i][k] != INF && distancia[k][j] != INF && distancia[i][k] + distancia[k][j] < distancia[i][j]) {
+                    distancia[i][j] = distancia[i][k] + distancia[k][j];
+                }
+            }
+        }
+    }
+
+    // Imprimir las distancias más cortas
+    cout << "Matriz de distancias más cortas:" << endl;
+    for (int i = 0; i < numVertices; ++i) {
+        for (int j = 0; j < numVertices; ++j) {
+            if (distancia[i][j] == INF) {
+                cout << "INF\t";
+            } else {
+                cout << distancia[i][j] << "\t";
+            }
+        }
+        cout << endl;
+    }
+}*/ }
