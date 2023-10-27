@@ -11,8 +11,8 @@ public:
 
     void addNode(int nodoOrigen, int nodoDestino);
     void addEdge(int nodoOrigen, int nodoDestino);
-    void delteNode();
-    void delteEdge();
+    void delteNode(int nodo);
+    void delteEdge(int nodo1,int nodo2 );
     bool existsEdge();
     void dijkstra(int start);
     void floydWarshall();

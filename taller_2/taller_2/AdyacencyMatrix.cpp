@@ -30,11 +30,53 @@ AdyacencyMatrix::~AdyacencyMatrix() {
     free(matrix);
 }
 
-void AdyacencyMatrix::addEdge(int nodoOrigen, int nodoDestino) {
+void AdyacencyMatrix::addEdge(int nodeOrigen, int nodeDestino) {
 
 
     
 }
+
+void AdyacencyMatrix::delteEdge(int node1, int node2) {
+
+
+}
+
+
+void AdyacencyMatrix::delteNode(int node) {
+
+    if (node>= 0) {
+        free(matrix[node]);
+    }
+    for (int i = 0; i < numNodos- 1; i++) {
+        matrix[i] = matrix[i + 1];
+    }
+
+    free(matrix[numNodos - 1]);
+
+    numNodos--;
+    numNodos -= numNodos;
+
+    matrix = (int**)realloc(matrix, numNodos * sizeof(int));
+    for (int i = 0; i < numNodos; i++) {
+        matrix[i] = (int*)realloc(matrix[i], numNodos * sizeof(int));
+    }
+
+}
+
+bool AdyacencyMatrix::existsEdge() {
+
+}
+
+void AdyacencyMatrix::printMatrix() {
+
+    for (int i = 0; i < 26; i++) {
+        for (int j = 0;j<26;j++) {
+            cout << matrix[i][j] << "";
+        }
+    }
+}
+
+
 
 void AdyacencyMatrix::dijkstra(int start) {
     //todo: 
@@ -111,4 +153,6 @@ void AdyacencyMatrix::floydWarshall() {
         }
         cout << endl;
     }
-}*/ }
+}*/
+
+}
