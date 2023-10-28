@@ -34,9 +34,6 @@ bool ReadFileAventura::read() {
         while (getline(archivo, linea)) {
             string lineWithoutSpace = trimCpp(linea);
 
-            
-
-
         }
         archivo.close();
         return true; // Lectura exitosa

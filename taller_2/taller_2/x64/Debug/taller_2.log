@@ -1,6 +1,4 @@
 ﻿  AdyacencyMatrix.cpp
-  Place.cpp
-  Main.cpp
   System.cpp
   Generando código...
 C:\Users\Cristian Jimenez\Documents\GitHub\taller_2_c-\taller_2\taller_2\AdyacencyMatrix.cpp(68): error C4716: 'AdyacencyMatrix::existsEdge': debe devolver un valor
