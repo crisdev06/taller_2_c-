@@ -1,4 +1,4 @@
-#include "AdyacencyMatryx.h"
+#include "AdyacencyMatrix.h"
 #include <iostream>
 #include <vector>
 #include <queue>

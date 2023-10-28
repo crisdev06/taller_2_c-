@@ -1,11 +1,12 @@
 #pragma once
-#include <string>
+#include<string>
 using namespace std;
 
 class ReadFileAventura {
 public:
     ReadFileAventura(string& name);
     bool read();
+    string trimCpp(const string& line);
 private:
     string name;
 };

@@ -136,7 +136,7 @@
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdyacencyMatryx.h" />
+    <ClInclude Include="AdyacencyMatrix.h" />
     <ClInclude Include="ReadFileAventura.h" />
     <ClInclude Include="ReadFileLugares.h" />
     <ClInclude Include="System.h" />
