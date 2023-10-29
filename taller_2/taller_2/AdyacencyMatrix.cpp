@@ -22,6 +22,12 @@ AdyacencyMatrix::AdyacencyMatrix(int numNodos) : numNodos(numNodos){
     
 }
 
+//reparar!!
+void AdyacencyMatrix::addNode() {
+ 
+}
+
+
 AdyacencyMatrix::~AdyacencyMatrix() {
 
     for (int i = 0; i < numNodos; ++i) {

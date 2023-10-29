@@ -1,6 +1,7 @@
 #include "ReadFileLugares.h"
 #include <iostream>
 #include <fstream>
+#include <stdexcept> 
 #include "Place.h"
 
 
@@ -8,7 +9,7 @@ using namespace std;
 
 ReadFileLugares::ReadFileLugares(string& name) : name(name) {}
 
-bool ReadFileLugares::read() {
+list<Place> ReadFileLugares::read() {
     ifstream archivo(name);
     if (archivo.is_open()) {
         string linea;
@@ -30,13 +31,15 @@ bool ReadFileLugares::read() {
             }           
             bool state = false;
             Place p = Place(nameNode, name, state);
+            places.push_back(p);
 
         }
         archivo.close();
-        return true; // Lectura exitosa
+        return places; // Lectura exitosa
     }
     else {
-        cout << "No se pudo abrir el archivo." << endl;
-        return false; // Error al abrir el archivo
+        throw std::runtime_error("No se pudo abrir el archivo.");
+        
+        
     }
 }

@@ -8,7 +8,7 @@ public:
     ~AdyacencyMatrix(); // Destructor
     void minRout();
     void emergencyRout();
-    void addNode(int nodoOrigen, int nodoDestino);
+    void addNode();
     void addEdge(int nodoOrigen, int nodoDestino);
     void delteNode(int nodo);
     void delteEdge(int nodo1,int nodo2 );

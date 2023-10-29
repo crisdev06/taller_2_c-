@@ -2,12 +2,18 @@
 #include "ReadFileLugares.h"
 #include "ReadFileAventura.h"
 #include "AdyacencyMatrix.h"
+#include "Place.h"
 #include <iostream>
+#include<List>
+
 using namespace std;
 
 string name;
 ReadFileLugares readFileP(name);
 ReadFileAventura readFileA(name);
+list<Place> places = readFileP.read();
+list<AdyacencyMatrix> matrix = readFileA.read();
+AdyacencyMatrix adyMatrix = matrix.front();
 
 
 
@@ -33,13 +39,15 @@ void System::opcion3()
 
         switch (opc) {
         case 1:
-
+            adyMatrix.addNode();
             break;
         case 2:
-
+            int nodeOrigin;
+            int nodeEnd;
+            adyMatrix.addEdge(nodeOrigin,nodeEnd);
             break;
         case 3:
-
+            cout << "Volviendo al menu principal";
             break;
         default:
             cout << "Opción no válida. Inténtalo de nuevo." << endl;
@@ -60,13 +68,16 @@ void System::opcion4()
 
         switch (opc) {
         case 1:
-
+            int node;
+            adyMatrix.delteNode(node);
             break;
         case 2:
-
+            int node1;
+            int node2;           
+            adyMatrix.delteEdge(node1, node2);
             break;
         case 3:
-
+            cout << "Volviendo al menu principal";
             break;
         default:
             cout << "Opción no válida. Inténtalo de nuevo." << endl;

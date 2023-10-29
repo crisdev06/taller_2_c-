@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <cctype>
+#include <stdexcept> 
 
 using namespace std;
 
@@ -25,7 +26,7 @@ string ReadFileAventura::trimCpp(const string& line) {
 }
 
 
-bool ReadFileAventura::read() {
+list<AdyacencyMatrix> ReadFileAventura::read() {
     ifstream archivo(name);
     if (archivo.is_open()) {
         string linea;
@@ -34,13 +35,15 @@ bool ReadFileAventura::read() {
         while (getline(archivo, linea)) {
             string lineWithoutSpace = trimCpp(linea);
 
+
+
+
         }
         archivo.close();
-        return true; // Lectura exitosa
+        return adyMatrix; // Lectura exitosa
     }
     else {
-        cout << "No se pudo abrir el archivo." << endl;
-        return false; // Error al abrir el archivo
+        throw std::runtime_error("No se pudo abrir el archivo.");
     }
 }
 
