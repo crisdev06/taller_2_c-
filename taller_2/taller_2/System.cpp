@@ -18,6 +18,8 @@ AdyacencyMatrix adyMatrix = matrix.front();
 
 
 
+
+
 void System::opcion1()
 {
     int nodeOrigin;

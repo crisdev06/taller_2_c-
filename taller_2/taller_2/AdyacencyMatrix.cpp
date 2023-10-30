@@ -10,7 +10,6 @@ using namespace std;
 AdyacencyMatrix::AdyacencyMatrix(int numNodos) : numNodos(numNodos){
 
     matrix = (int**)malloc(numNodos * sizeof(int*));
-
     for (int i = 0; i < numNodos; ++i) {
         matrix[i] = (int*)malloc(numNodos * sizeof(int));
         for (int j = 0; j < numNodos; ++j) {
@@ -52,23 +51,22 @@ AdyacencyMatrix::~AdyacencyMatrix() {
 
 void AdyacencyMatrix::addEdge(int nodoOrigin, int nodoEnd, int weight) {
    
-    if (nodoOrigin >= 0 && nodoOrigin < numNodos && nodoEnd >= 0 && nodoEnd< numNodos && weight > 0) {
+    if (nodoOrigin >= 0 && nodoOrigin < numNodos && nodoEnd >= 0 && nodoEnd < numNodos && weight > 0) {
         matrix[nodoOrigin][nodoEnd] = weight;
         std::cout << "Arista agregada entre los nodos " << nodoOrigin << " y " << nodoEnd << " con peso " << weight << std::endl;
     }
     else {
         std::cout << "No se pudo agregar la arista. Nodos inválidos o peso no válido." << std::endl;
     }
-    
 }
 
 void AdyacencyMatrix::deleteEdge(int node1, int node2) {
-    if (node1 >= 0 && node1< numNodos && node2 >= 0 && node2 < numNodos && matrix[node1][node2] > 0) {
-        matrix[node1][node2] -= 1;
-        
+    if (node1 >= 0 && node1 < numNodos && node2 >= 0 && node2 < numNodos && matrix[node1][node2] > 0) {
+        matrix[node1][node2] = 0;
+        std::cout << "Arista eliminada entre los nodos " << node1 << " y " << node2 << std::endl;
     }
     else {
-        std::cout << "No se pudo agregar la arista. Nodos inválidos o peso no válido." << std::endl;
+        std::cout << "No se pudo eliminar la arista. Nodos inválidos o arista no existente." << std::endl;
     }
 
 }
@@ -76,21 +74,19 @@ void AdyacencyMatrix::deleteEdge(int node1, int node2) {
 
 void AdyacencyMatrix::deleteNode(int node) {
 
-    if (node>= 0) {
+    if (node >= 0 && node < numNodos) {
         free(matrix[node]);
+
+        // Reorganizar la matriz
+        for (int i = node; i < numNodos - 1; ++i) {
+            matrix[i] = matrix[i + 1];
+        }
+
+        numNodos--;
+        matrix = (int**)realloc(matrix, numNodos * sizeof(int*));
     }
-    for (int i = 0; i < numNodos- 1; i++) {
-        matrix[i] = matrix[i + 1];
-    }
-
-    free(matrix[numNodos - 1]);
-
-    numNodos--;
-    numNodos -= numNodos;
-
-    matrix = (int**)realloc(matrix, numNodos * sizeof(int));
-    for (int i = 0; i < numNodos; i++) {
-        matrix[i] = (int*)realloc(matrix[i], numNodos * sizeof(int));
+    else {
+        std::cout << "No se pudo eliminar el nodo. Nodo inválido." << std::endl;
     }
 
 }
@@ -107,10 +103,11 @@ bool AdyacencyMatrix::existsEdge(int nodeOrigin, int nodeEnd) {
 
 void AdyacencyMatrix::printMatrix() {
 
-    for (int i = 0; i < numNodos; i++) {
-        for (int j = 0;j<numNodos;j++) {
-            cout << matrix[i][j] << "";
+    for (int i = 0; i < numNodos; ++i) {
+        for (int j = 0; j < numNodos; ++j) {
+            std::cout << matrix[i][j] << "\t";
         }
+        std::cout << std::endl;
     }
 }
 
