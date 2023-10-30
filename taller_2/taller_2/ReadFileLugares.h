@@ -2,6 +2,7 @@
 #include <string>
 #include <List>
 #include <stdexcept> 
+#include "Place.h"
 using namespace std;
 
 class ReadFileLugares {

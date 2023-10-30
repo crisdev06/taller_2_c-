@@ -1,0 +1,4 @@
+A,Sala de emergencias,Peligroso
+B,Sala de rayos X,Peligroso
+C,Cocina del persona,Estable
+D,Sala de espera,Estable 
